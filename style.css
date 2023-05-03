@@ -1,0 +1,41 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-one-p {
+  min-height: 80vh;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  /* background-color: #ccc; */
+  width: 80vw;
+}
+
+/* .column {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 100%;
+} */
+
+.cell {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border: 1px solid #999;
+}
+
+.shaded {
+  background-color: aquamarine;
+}
+
+.submit {
+  margin-top: 50px;
+}
+
+.players {
+  margin-bottom: 30px;
+}
