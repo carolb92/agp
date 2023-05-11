@@ -5,8 +5,8 @@ let boardWidth;
 let singlePlayer = true;
 
 const submitButton = document.querySelector(".button-submit");
-
 const clearButton = document.querySelector(".button-clear");
+const diceRollButton = document.querySelector(".button-roll");
 
 function createGrid() {
     // gives us the option to expand the board dimensions in two player mode
@@ -60,9 +60,22 @@ submitButton.addEventListener("click", function () {
     clickedCells = [];
 });
 
-// unshade the cells that were just clicked (but not submitted) so the user can try a different combo of cells
+// use the clear button to unshade the cells that were just clicked (but not submitted) so the user can try a different combo of cells
 clearButton.addEventListener("click", () => {
     clickedCells.forEach((cell) => {
         cell.classList.toggle("shaded");
     });
+});
+
+// lose condition of forfeiting two consecutive turns
+let forfeitTurnLosses = 0;
+let count = 0;
+diceRollButton.addEventListener("click", function () {   
+    count++;
+    console.log(count);
+    if (count === 2) {
+        console.log("You lose!")
+        // diceRollButton.classList.add("hidden");
+        forfeitTurnLosses++;
+    } 
 });
