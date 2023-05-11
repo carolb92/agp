@@ -58,6 +58,7 @@ submitButton.addEventListener("click", function () {
     );
     // empty out the array so the submitted cells don't get cleared if the clear button is clicked
     clickedCells = [];
+    checkIfGridShaded();
 });
 
 // use the clear button to unshade the cells that were just clicked (but not submitted) so the user can try a different combo of cells
@@ -65,6 +66,7 @@ clearButton.addEventListener("click", () => {
     clickedCells.forEach((cell) => {
         cell.classList.toggle("shaded");
     });
+    checkIfGridShaded();
 });
 
 // lose condition of forfeiting two consecutive turns
@@ -79,3 +81,13 @@ diceRollButton.addEventListener("click", function () {
         forfeitTurnLosses++;
     } 
 });
+
+
+const cellsArray = Array.from(cells);
+
+const checkIfGridShaded = () => {
+    const allShaded = cellsArray.every((cell) => cell.classList.contains("shaded"));
+    if(allShaded === true) {
+        console.log("everything is shaded");
+    }
+}
