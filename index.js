@@ -82,12 +82,16 @@ diceRollButton.addEventListener("click", function () {
     } 
 });
 
-
+// create an array from the cells node list
 const cellsArray = Array.from(cells);
 
+// win condition where the player has shaded the entire grid
+// check if the whole grid is shaded
 const checkIfGridShaded = () => {
+    // checks if every cell in the array contains the shaded class; returns a boolean
     const allShaded = cellsArray.every((cell) => cell.classList.contains("shaded"));
     if(allShaded === true) {
-        console.log("everything is shaded");
+        // the player wins
+        console.log("you win!");
     }
 }
